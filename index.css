@@ -1,0 +1,54 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-image: url('img/entrada.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.container{
+    background-color: #d3d3d3;
+    border-radius: 20px;
+    padding: 20px;
+    text-align: center;
+    width: 300px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.container h1{
+    background-color: #091409;
+    color: #138608;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+
+}
+
+.container label {
+    display: block;
+    margin-bottom: 10px;
+    padding: 5px;
+}
+
+.container input[type="password"]{
+    width: calc(100%-20px);
+    color:#138608;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 5px;
+}
+
+.container button{
+    background-color: #138608;
+    color: white;
+    padding: 10px 20px;
+    border: node;
+    border-radius: 10px;
+    cursor: pointer;
+
+}
