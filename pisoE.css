@@ -1,15 +1,43 @@
-body {
-    font-family: Arial, sans-serif;
+body{
+    margin: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    margin: 0;
-    background-image: url('img/elevator\ door.jpg');
-    background-size: cover;
-    background-position: center center;
+    background-image: url('img/pisoE.jpg');
+    background-size: contain;
+    background-position: center;
     background-repeat: no-repeat;
-    background-attachment: fixed;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.letf{
+   width: 20%;
+   height: 100%;
+   background-color: #5c5858;
+   position: absolute;
+   left: 0;
+   top: 0;
+}
+
+.right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #5c5858;
+    width: 20%;
+    height: 100%;
+    position: absolute;
+    right: 0;
 }
 
 .elevator-container {
@@ -18,18 +46,24 @@ body {
     border-radius: 15px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: center;
-    width: 250px; /* Ajustar el ancho */
-    height: 350px; /* Ajustar la altura */
+    width: 250px;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end; /* Alinear hacia abajo */
+    align-items: center;
+    justify-content: space-between;
+    height: 400px;
+
 }
 
 .screen {
     background-color: #3a3a3a;
     padding: 10px;
     border-radius: 5px;
-    margin-bottom: 20px; /* Separar la pantalla de los botones */
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
 }
 
 .floor-display {
@@ -41,9 +75,9 @@ body {
 .buttons {
     display: grid;
     grid-template-columns: repeat(2, 1fr); /* Dos columnas */
-    gap: 20px; /* Espacio entre botones */
+    gap: 35px; /* Espacio entre botones */
     justify-items: center; /* Centrar los botones en sus columnas */
-    margin-top: auto; /* Empujar los botones hacia abajo */
+    
 }
 
 .button {
@@ -61,14 +95,10 @@ body {
     height: 60px; /* Ajustar el tamaño del botón */
 }
 
-.button:hover {
-    background-color: #18581093;
-}
-
 .arrow-button {
-    font-size: 24px; 
+    font-size: 20px;
 }
 
-.x-button{
+.x-button {
     background-color: red;
 }

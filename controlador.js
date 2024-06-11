@@ -35,32 +35,19 @@ function goToFloor(floor) {
     let selectedFloor;
     if (floor === 'H') {
         selectedFloor = inquilinoActual.room;
-        cambiarfondo(floor);
+        window.location.href ='pisoH.html';
 
-    } else if (floor === 'E') {456
+    } else if (floor === 'E') {
         selectedFloor = inquilinoActual.entertainment;
-        cambiarfondo(floor);
+        window.location.href = 'pisoE.html';
+        
 
     } else {
         selectedFloor = 'PB';
-        cambiarfondo(floor);
     }
     document.getElementById('floorDisplay').innerText = selectedFloor;
     
     alert(`Accediendo a la planta ${selectedFloor}`);
-}
-
-
-function cambiarfondo(fondo){
-    if(fondo == 'PB'){
-        document.body.style.background = '#00ffff';
-    }else if(fondo == 'H'){
-        document.body.style.background = '#ff9f13';
-    }else if (fondo == 'E'){
-        document.body.style.background = '#2e86de';
-
-    }
-
 }
 
 function openDoor() {
