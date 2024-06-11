@@ -71,6 +71,10 @@ function closeDoor() {
     alert('Cerrando la Puerta');
 }
 
+function salir(){
+    window.location.href = 'index.html';
+}
+
 if (window.location.pathname.endsWith('access.html')) {
     cargarDatos();
 }
