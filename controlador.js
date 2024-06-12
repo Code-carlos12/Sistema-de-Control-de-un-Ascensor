@@ -5,8 +5,7 @@ const inquilinos = {
 };
 
 let inquilinoActual = null;
-
-
+let pisoActual = null;
 
 function checkAccess() {
     const key = document.getElementById('key').value;
@@ -24,10 +23,14 @@ function cargarDatos() {
     const datosInquilino = localStorage.getItem('inquilinoActual');
     if (datosInquilino) {
         inquilinoActual = JSON.parse(datosInquilino);
-       
     } else {
         alert('No se encontró información del inquilino.');
         window.location.href = 'index.html';
+    }
+
+    const datosPiso = localStorage.getItem('pisoActual');
+    if (datosPiso) {
+        pisoActual = datosPiso;
     }
 }
 
@@ -35,19 +38,17 @@ function goToFloor(floor) {
     let selectedFloor;
     if (floor === 'H') {
         selectedFloor = inquilinoActual.room;
-        window.location.href ='pisoH.html';
-
+        window.location.href = 'pisoH.html';
     } else if (floor === 'E') {
         selectedFloor = inquilinoActual.entertainment;
         window.location.href = 'pisoE.html';
-        
-
     } else {
         selectedFloor = 'PB';
-        window.location.href = 'access.html'
+        window.location.href = 'access.html';
     }
     document.getElementById('floorDisplay').innerText = selectedFloor;
-    
+    pisoActual = selectedFloor;
+    localStorage.setItem('pisoActual', selectedFloor);
     alert(`Accediendo a la planta ${selectedFloor}`);
 }
 
@@ -57,19 +58,24 @@ function openDoor() {
 
 function closeDoor() {
     alert('Cerrando la Puerta');
+    localStorage.setItem('pisoActual', pisoActual);
+    window.location.href = 'cerrar.html';
 }
 
-function salir(){
+function salir() {
     window.location.href = 'index.html';
 }
 
-function mostrarPiso(){
-    if(window.location.pathname.endsWith('pisoE.html')){
-        const floorDisplay = document.getElementById('floorDisplay');
+function mostrarPiso() {
+    const pisoGuardado = localStorage.getItem('pisoActual');
+    const floorDisplay = document.getElementById('floorDisplay');
+    
+    if (window.location.pathname.endsWith('pisoE.html')) {
         floorDisplay.innerText = inquilinoActual.entertainment;
-    } else if(window.location.pathname.endsWith('pisoH.html')){
-        const floorDisplay = document.getElementById('floorDisplay');
+    } else if (window.location.pathname.endsWith('pisoH.html')) {
         floorDisplay.innerText = inquilinoActual.room;
+    } else if (window.location.pathname.endsWith('cerrar.html')) {
+        floorDisplay.innerText = pisoGuardado ? pisoGuardado : 'Desconocido';
     }
 }
 
@@ -77,7 +83,7 @@ if (window.location.pathname.endsWith('access.html')) {
     cargarDatos();
 }
 
-if(window.location.pathname.endsWith('access.html')  ||  window.location.pathname.endsWith('pisoE.html')  ||  window.location.pathname.endsWith('pisoH.html')){
+if (window.location.pathname.endsWith('access.html') || window.location.pathname.endsWith('pisoE.html') || window.location.pathname.endsWith('pisoH.html') || window.location.pathname.endsWith('cerrar.html')) {
     cargarDatos();
     mostrarPiso();
 }

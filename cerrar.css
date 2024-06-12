@@ -1,0 +1,102 @@
+body{
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.letf{
+   width: 50%;
+   height: 100%;
+   background-color: #5c5858;
+   border-right: 24px solid #181818;
+   position: absolute;
+   left: 0;
+   top: 0;
+}
+
+.right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #5c5858;
+    width: 50%;
+    height: 100%;
+    border-left: 24px solid #181818;
+    position: absolute;
+    right: 0;
+}
+
+.elevator-container {
+    background-color: #e0e0e0;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 400px;
+
+}
+
+.screen {
+    background-color: #3a3a3a;
+    padding: 10px;
+    border-radius: 5px;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+}
+
+.floor-display {
+    color: #0f0;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Dos columnas */
+    gap: 35px; /* Espacio entre botones */
+    justify-items: center; /* Centrar los botones en sus columnas */
+    
+}
+
+.button {
+    background-color: #444;
+    color: #fff;
+    border: none;
+    border-radius: 50%; /* Hacer los botones circulares */
+    padding: 20px;
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px; /* Ajustar el tamaño del botón */
+    height: 60px; /* Ajustar el tamaño del botón */
+}
+
+.arrow-button {
+    font-size: 20px;
+}
+
+.x-button {
+    background-color: red;
+}
