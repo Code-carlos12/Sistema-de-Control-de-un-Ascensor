@@ -53,13 +53,23 @@ function goToFloor(floor) {
 }
 
 function openDoor() {
-    alert('Abriendo la Puerta');
+    
+    if(window.location.pathname.endsWith('cerrar.html')){
+        alert('Abriendo la Puerta');
+        window.location.href = document.referrer;
+    }else{
+        alert('La puerta esta abierta')
+    }
 }
 
 function closeDoor() {
-    alert('Cerrando la Puerta');
-    localStorage.setItem('pisoActual', pisoActual);
-    window.location.href = 'cerrar.html';
+    if(!window.location.pathname.endsWith('cerrar.html')){
+        alert('Cerrando la Puerta');
+        localStorage.setItem('pisoActual', pisoActual);
+        window.location.href = 'cerrar.html';
+    }else{
+        alert('La Puerta esta cerrada')
+    }
 }
 
 function salir() {
