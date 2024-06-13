@@ -36,20 +36,38 @@ function cargarDatos() {
 
 function goToFloor(floor) {
     let selectedFloor;
-    if (floor === 'H') {
+    if (floor == 'H') {
+        if(pisoActual == 'H'){
+            alert(`Estás en el piso ${pisoActual}`);
+            return
+        }
         selectedFloor = inquilinoActual.room;
+        pisoActual = 'H';
         window.location.href = 'pisoH.html';
-    } else if (floor === 'E') {
+    } else if (floor == 'E') {
+        if(pisoActual == 'E'){
+            alert(`Estás en el piso ${pisoActual}`);
+            return
+        }
         selectedFloor = inquilinoActual.entertainment;
+        pisoActual = 'E';
         window.location.href = 'pisoE.html';
-    } else {
+    } else if(floor == 'PB'){
+        if(pisoActual === 'PB'){
+            alert(`Estás en el piso ${pisoActual}`);
+            return
+        }
         selectedFloor = 'PB';
+        pisoActual ='PB';
         window.location.href = 'access.html';
     }
-    document.getElementById('floorDisplay').innerText = selectedFloor;
-    pisoActual = selectedFloor;
-    localStorage.setItem('pisoActual', selectedFloor);
-    alert(`Accediendo a la planta ${selectedFloor}`);
+
+    if(selectedFloor){
+        document.getElementById('floorDisplay').innerText = selectedFloor;
+        localStorage.setItem('pisoActual', pisoActual);
+        alert(`Accediendo a la planta ${selectedFloor}`);
+    }
+    
 }
 
 function openDoor() {
